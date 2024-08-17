@@ -49,4 +49,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_TYPESCRIPT_PRETTIER: true
           VALIDATE_ALL_CODEBASE: true
-          VALIDATE_JSCPD: false
