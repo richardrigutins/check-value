@@ -79,6 +79,9 @@ following steps:
 1. **Prompting for a new release tag:** The user is then prompted to enter a new
    release tag. To assist with this, the script displays the latest release tag
    and provides a regular expression to validate the format of the new tag.
+1. **Checking if the tag exists**: The script checks if the tag already exists
+   in the remote repository. If the tag already exists, the user is prompted to
+   confirm if they want to overwrite the existing tag.
 1. **Tagging the new release:** Once a valid new tag is entered, the script tags
    the new release.
 1. **Pushing the new tag to the remote:** Finally, the script pushes the new tag
