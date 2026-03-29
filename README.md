@@ -51,10 +51,10 @@ to run all tests, lint the code, and build the final JavaScript action code:
 npm run all
 ```
 
-> This step is important! It will run
-> [Rollup](https://rollupjs.org) to bundle the final JavaScript action code with
-> all dependencies included into `dist/`. If you do not run this step, the
-> action will not work correctly when it is used in a workflow.
+> This step is important! It will run [Rollup](https://rollupjs.org) to bundle
+> the final JavaScript action code with all dependencies included into `dist/`.
+> If you do not run this step, the action will not work correctly when it is
+> used in a workflow.
 
 ## Validate the Action
 
