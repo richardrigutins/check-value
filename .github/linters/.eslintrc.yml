@@ -25,6 +25,11 @@ parserOptions:
     - './.github/linters/tsconfig.json'
     - './tsconfig.json'
 
+settings:
+  import/resolver:
+    typescript:
+      alwaysTryTypes: true
+
 plugins:
   - jest
   - '@typescript-eslint'
@@ -43,7 +48,6 @@ rules:
     'eslint-comments/no-unused-disable': 'off',
     'i18n-text/no-en': 'off',
     'import/no-namespace': 'off',
-    'import/no-unresolved': 'off',
     'no-console': 'off',
     'no-unused-vars': 'off',
     'prettier/prettier': 'error',
