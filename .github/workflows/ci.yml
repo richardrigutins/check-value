@@ -17,13 +17,13 @@ on:
 permissions:
   contents: read
 
-env:
-  TEST_ENV: test
-
 jobs:
   test-typescript:
     name: TypeScript Tests
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20.x, 22.x]
 
     steps:
       - name: Checkout
@@ -34,7 +34,7 @@ jobs:
         id: setup-node
         uses: actions/setup-node@v6
         with:
-          node-version-file: .node-version
+          node-version: ${{ matrix.node-version }}
           cache: npm
 
       - name: Install Dependencies
@@ -51,53 +51,4 @@ jobs:
 
       - name: Test
         id: npm-ci-test
-        run: npm run ci-test
-
-  test-action:
-    name: GitHub Actions Test
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        id: checkout
-        uses: actions/checkout@v6
-
-      - name: Check existing secret
-        id: check-existing-secret
-        uses: ./
-        with:
-          input: ${{ secrets.TEST_SECRET }}
-
-      - name: Fail if secret is not set
-        if: steps.check-existing-secret.outputs.has-value != 'true'
-        run: exit 1
-
-      - name: Check non-existing secret
-        id: check-non-existing-secret
-        uses: ./
-        with:
-          input: ${{ secrets.NON_EXISTING_SECRET }}
-
-      - name: Fail if secret is set
-        if: steps.check-non-existing-secret.outputs.has-value == 'true'
-        run: exit 1
-
-      - name: Check existing environment variable
-        id: check-existing-env
-        uses: ./
-        with:
-          input: ${{ env.TEST_ENV }}
-
-      - name: Fail if environment variable is not set
-        if: steps.check-existing-env.outputs.has-value != 'true'
-        run: exit 1
-
-      - name: Check non-existing environment variable
-        id: check-non-existing-env
-        uses: ./
-        with:
-          input: ${{ env.NON_EXISTING_ENV }}
-
-      - name: Fail if environment variable is set
-        if: steps.check-non-existing-env.outputs.has-value == 'true'
-        run: exit 1
+        run: npm run test

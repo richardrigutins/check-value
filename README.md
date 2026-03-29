@@ -51,12 +51,10 @@ to run all tests, lint the code, and build the final JavaScript action code:
 npm run all
 ```
 
-> This step is important! It will run [`ncc`](https://github.com/vercel/ncc) to
-> build the final JavaScript action code with all dependencies included. If you
-> do not run this step, the action will not work correctly when it is used in a
-> workflow. This step also includes the `--license` option for `ncc`, which will
-> create a license file for all of the production node modules used in your
-> project.
+> This step is important! It will run [Rollup](https://rollupjs.org) to bundle
+> the final JavaScript action code with all dependencies included into `dist/`.
+> If you do not run this step, the action will not work correctly when it is
+> used in a workflow.
 
 ## Validate the Action
 
