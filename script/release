@@ -99,7 +99,7 @@ if [[ "$update_major" == true ]]; then
 		git push origin --delete "$major_tag"
 		echo -e "${GREEN}Deleted remote tag: $major_tag${OFF}"
 	fi
-	
+
 	# Tag and push the major release
 	git tag -a "$major_tag" -m "$major_tag Release"
 	echo -e "${GREEN}Tagged: $major_tag${OFF}"
