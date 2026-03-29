@@ -101,4 +101,7 @@ Contributions are welcome! Here are some ways you can contribute:
 - Fix bugs or implement new features by submitting a pull request.
 
 Before submitting a pull request, please make sure that your changes are
-consistent with the project's coding style and that all tests pass.
+consistent with the project's coding style and that all tests pass. Commit
+messages should follow the
+[Conventional Commits](https://www.conventionalcommits.org/) specification (e.g.
+`feat:`, `fix:`, `chore:`).
